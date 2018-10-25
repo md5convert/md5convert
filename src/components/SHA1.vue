@@ -1,8 +1,8 @@
 <template>
-	    
+
     <v-layout row wrap>
         
-		<v-flex xs12><h1>MD5</h1></v-flex>
+		<v-flex xs12><h1>SHA-1</h1></v-flex>
 
         <v-flex xs12 sm12 md6>  
 			<h3>Encrypt</h3>
@@ -17,7 +17,7 @@
 
 <script>
 
-	import md5 from 'crypto-js/md5'
+	import CryptoJS from 'crypto-js';
 
 	export default {
 		data() {
@@ -28,7 +28,7 @@
 		},
 		watch: {
 			input(newVal) {
-				this.result = md5(newVal).toString();
+				this.result = CryptoJS.SHA1(newVal).toString();
 			}
 		}
 	}

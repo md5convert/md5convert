@@ -15,6 +15,11 @@ const router = new VueRouter({
     }
 })
 
+router.beforeEach((to, from, next) => {
+	document.title = to.meta.title
+	next()
+})
+
 Vue.config.productionTip = false
 
 new Vue({

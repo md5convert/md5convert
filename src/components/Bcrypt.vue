@@ -2,7 +2,7 @@
 	    
     <v-layout row wrap>
         
-		<v-flex xs12><h1>MD5</h1></v-flex>
+		<v-flex xs12><h1>Bcrypt</h1></v-flex>
 
         <v-flex xs12 sm12 md6>  
 			<h3>Encrypt</h3>
@@ -17,7 +17,7 @@
 
 <script>
 
-	import md5 from 'crypto-js/md5'
+	import Bcrypt from 'bcryptjs'
 
 	export default {
 		data() {
@@ -28,7 +28,8 @@
 		},
 		watch: {
 			input(newVal) {
-				this.result = md5(newVal).toString();
+				var salt = bcrypt.genSaltSync(10);
+				var hash = bcrypt.hashSync("B4c0/\/", salt);
 			}
 		}
 	}

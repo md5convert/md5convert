@@ -14,23 +14,24 @@
                         </v-flex>
                     </v-layout>
 
-                    <v-list-tile v-else :key="item.text" @click="">
+                    <v-list-tile ripple v-else :key="item.text" @click="" :to="item.link">
                         <v-list-tile-action>
                             <v-icon>{{ item.icon }}</v-icon>
                         </v-list-tile-action>
                         <v-list-tile-content>
                             <v-list-tile-title>
-                                <router-link :to="item.link">{{ item.text }}</router-link>
+                                {{ item.text }}
                             </v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
+
                 </template>
             </v-list>
         </v-navigation-drawer>
         <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="blue darken-3" dark app fixed>
-            <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
+            <v-toolbar-title style="width: 300px" class="ml-0">
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-                <span class="hidden-sm-and-down">Google Contacts</span>
+                <span class="hidden-sm-and-down">MD5 Convert</span>
             </v-toolbar-title>
             <v-text-field flat solo-inverted hide-details prepend-inner-icon="search" label="Search" class="hidden-sm-and-down"></v-text-field>
             <v-spacer></v-spacer>
@@ -42,15 +43,15 @@
             </v-btn>
             <v-btn icon large>
                 <v-avatar size="32px" tile>
-                    <img src="https://cdn.vuetifyjs.com/images/logos/logo.svg" alt="Vuetify">
+                    <img src="../src/assets/avatar.png" alt="md5convert">
                 </v-avatar>
             </v-btn>
         </v-toolbar>
         <v-content>
-            <v-container fluid fill-height>
-                <v-layout justify-center align-center>
-                    <router-view/>
-                </v-layout>
+            <v-container fluid grid-list-md>
+                
+                <router-view/>
+                
             </v-container>
         </v-content>
         <v-btn fab bottom right color="pink" dark fixed @click="dialog = !dialog">
@@ -96,6 +97,17 @@
                 </v-card-actions>
             </v-card>
         </v-dialog>
+
+        <v-footer class="pa-3">
+            <v-spacer></v-spacer>
+            <div>
+                
+                &copy; {{ new Date().getFullYear() }}
+
+            </div>
+
+        </v-footer>
+
     </v-app>
 </template>
 
@@ -104,10 +116,16 @@
         data: () => ({
             dialog: false,
             drawer: null,
-            items: [{
+            items: [
+                {
                     icon: 'contacts',
                     text: 'MD5',
                     link: '/md5'
+                },
+                {
+                    icon: 'contacts',
+                    text: 'SHA-1',
+                    link: '/sha-1'
                 },
                 {
                     icon: 'content_copy',
@@ -121,9 +139,15 @@
                 },
                 {
                     icon: 'chat_bubble',
+                    text: 'AES',
+                    link: '/aes'
+                },
+                {
+                    icon: 'content_copy',
                     text: 'BCRYPT',
                     link: '/bcrypt'
-                }
+                },
+                
             ]
         }),
         props: {
