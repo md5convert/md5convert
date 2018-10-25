@@ -1,11 +1,18 @@
-import MD5 from './components/MD5'
-import Base64 from './components/Base64'
-import AES from './components/AES'
-import Bcrypt from './components/Bcrypt'
-import SHA256 from './components/SHA256'
-import SHA1 from './components/SHA1'
+import Home from '@/components/Home'
+import MD5 from '@/components/MD5'
+import Base64 from '@/components/Base64'
+import AES from '@/components/AES'
+import Bcrypt from '@/components/Bcrypt'
+import SHA256 from '@/components/SHA256'
+import SHA1 from '@/components/SHA1'
 
 export default [
+	{
+		path: '/',
+		component: Home,
+		name: 'home',
+		meta : {title : 'Home'}
+	},
 	{
 		path: '/md5',
 		component: MD5,

@@ -30,8 +30,10 @@
         </v-navigation-drawer>
         <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="blue darken-3" dark app fixed>
             <v-toolbar-title style="width: 300px" class="ml-0">
+
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
                 <span class="hidden-sm-and-down">MD5 Convert</span>
+
             </v-toolbar-title>
             <v-text-field flat solo-inverted hide-details prepend-inner-icon="search" label="Search" class="hidden-sm-and-down"></v-text-field>
             <v-spacer></v-spacer>
@@ -155,3 +157,9 @@
         }
     }
 </script>
+
+<style>
+    a {
+        text-decoration: none
+    }
+</style>
