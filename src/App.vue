@@ -32,10 +32,10 @@
             <v-toolbar-title style="width: 300px" class="ml-0">
 
                 <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-                <span class="hidden-sm-and-down">MD5 Convert</span>
+                <router-link :to="{ name : 'home' }" class="brand"><span>MD5 Convert</span></router-link>
 
             </v-toolbar-title>
-            <v-text-field flat solo-inverted hide-details prepend-inner-icon="search" label="Search" class="hidden-sm-and-down"></v-text-field>
+            
             <v-spacer></v-spacer>
             <v-btn icon>
                 <v-icon>apps</v-icon>
@@ -160,6 +160,10 @@
 
 <style>
     a {
-        text-decoration: none
+        text-decoration: none;
+    }
+
+    .brand {
+        color: white !important;
     }
 </style>
